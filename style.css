@@ -1,0 +1,28 @@
+* {
+    background-color: gray;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+#display {
+    width: 40vh;
+    height: 5vh;
+    border: 2px dashed white;
+    margin-bottom: 12px;
+    color: whitesmoke;
+    justify-content: center;
+    text-align: right;
+    font-size: 40px;
+}
+button {
+    background-color: whitesmoke;
+}
+.numBtns {
+    display: flex;
+    justify-content: center;
+}
+.mathBtns {
+    display: flex;
+    justify-content: center;
+}
