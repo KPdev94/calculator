@@ -4,15 +4,17 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 #display {
     width: 40vh;
-    height: 5vh;
+    height: 8vh;
     border: 2px dashed white;
     margin-bottom: 12px;
     color: whitesmoke;
-    justify-content: center;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     font-size: 40px;
 }
 button {
