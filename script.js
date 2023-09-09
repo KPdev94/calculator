@@ -6,14 +6,14 @@ let displayNum;
 const screen = document.querySelector('#display');
 const screenClear = () => {
     screen.textContent = "";
-    firstNum = null;
+    firstNum = 0;
     operator = null;
-    nextNum = null;
+    nextNum = 0;
 }
 
 
 const operate = (operator, num1, num2) => {
-    if(operator != null && num1 != 0 && num2 != 0) {
+    if(operator != null) {
         if (operator == 'add') return num1 + num2;
         else if (operator =='sub') return num1 - num2;
         else if (operator == 'multiply') return num1 * num2;
@@ -39,6 +39,7 @@ numBtns.forEach((button) => {
         Next: ${nextNum}
         Operator: ${operator}
         Display: ${displayNum}`);
+        console.log(e.target.id);
     });
 });
 
@@ -47,11 +48,12 @@ mathBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
         operator = e.target.id;
         if(nextNum > 0) {
-            displayNum += operate(operator, displayNum, nextNum);
+            displayNum = operate(operator, displayNum, nextNum);
             screen.textContent = displayNum;
             nextNum = null;
         }
         console.log(`First: ${firstNum} Next: ${nextNum} Operator: ${operator} Display: ${displayNum}`);
+        console.log(e.target.id);
     });
 });
 
@@ -59,7 +61,8 @@ mathBtns.forEach((button) => {
 const equalsBtn = document.querySelector(".equalsBtn");
 equalsBtn.addEventListener('click', () => {
     screen.textContent = operate(operator, Number(displayNum), Number(nextNum));
-    console.log(`First: ${firstNum} 
+    displayNum = screen.textContent;
+    console.log(`First: ${displayNum} 
              Next: ${nextNum}
              Operator: ${operator}
              Display: ${displayNum}`);
