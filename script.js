@@ -6,11 +6,10 @@ let displayNum;
 const screen = document.querySelector('#display');
 const screenClear = () => {
     screen.textContent = "";
-    firstNum = null;
+    firstNum = 0;
     operator = null;
-    nextNum = null;
+    nextNum = 0;
 }
-
 
 const operate = (operator, num1, num2) => {
         if (operator == 'add') return num1 + num2;
@@ -18,7 +17,6 @@ const operate = (operator, num1, num2) => {
         else if (operator == 'multiply') return num1 * num2;
         else if (operator == 'divide') return num1 / num2;
 } 
-
 
 const numBtns = document.querySelectorAll(".numBtn");
 numBtns.forEach((button) => {
@@ -36,6 +34,7 @@ numBtns.forEach((button) => {
         Next: ${nextNum}
         Operator: ${operator}
         Display: ${displayNum}`);
+        console.log(e.target.id);
     });
 });
 
@@ -48,11 +47,10 @@ mathBtns.forEach((button) => {
         operator = e.target.id;
         nextNum = null;
         screen.textContent = displayNum;
-
         console.log(`First: ${firstNum} Next: ${nextNum} Operator: ${operator} Display: ${displayNum}`);
+        console.log(e.target.id);
     });
 });
-
 
 const equalsBtn = document.querySelector(".equalsBtn");
 equalsBtn.addEventListener('click', () => {
