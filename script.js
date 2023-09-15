@@ -1,6 +1,6 @@
 let operator;
-let firstNum = 0;
-let nextNum = 0;
+let firstNum = null;
+let nextNum = null;
 let displayNum;
 
 const screen = document.querySelector('#display');
@@ -13,13 +13,10 @@ const screenClear = () => {
 
 
 const operate = (operator, num1, num2) => {
-    if(operator != null && num1 != 0 && num2 != 0) {
         if (operator == 'add') return num1 + num2;
         else if (operator =='sub') return num1 - num2;
         else if (operator == 'multiply') return num1 * num2;
         else if (operator == 'divide') return num1 / num2;
-    }
-    screen.textContent = displayNum;
 } 
 
 
@@ -27,13 +24,13 @@ const numBtns = document.querySelectorAll(".numBtn");
 numBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
         screen.textContent += e.target.textContent;
-        if(operator == null) {
-            firstNum = firstNum * 10 + Number(e.target.id);
-            displayNum = firstNum;
-        }
-        else {
+        if(firstNum && operator) {
             nextNum = nextNum * 10 + Number(e.target.id);
             screen.textContent = nextNum;
+        }
+        else if(operator == null) {
+            firstNum = firstNum * 10 + Number(e.target.id);
+            displayNum = firstNum;
         }
         console.log(`First: ${firstNum} 
         Next: ${nextNum}
@@ -45,12 +42,13 @@ numBtns.forEach((button) => {
 const mathBtns = document.querySelectorAll(".mathBtn");
 mathBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
-        operator = e.target.id;
-        if(nextNum > 0) {
-            displayNum += operate(operator, displayNum, nextNum);
-            screen.textContent = displayNum;
-            nextNum = null;
+        if(nextNum != null) {
+            displayNum = Number(operate(operator, displayNum, nextNum));
         }
+        operator = e.target.id;
+        nextNum = null;
+        screen.textContent = displayNum;
+
         console.log(`First: ${firstNum} Next: ${nextNum} Operator: ${operator} Display: ${displayNum}`);
     });
 });
@@ -58,7 +56,10 @@ mathBtns.forEach((button) => {
 
 const equalsBtn = document.querySelector(".equalsBtn");
 equalsBtn.addEventListener('click', () => {
-    screen.textContent = operate(operator, Number(displayNum), Number(nextNum));
+    displayNum = Number(operate(operator, displayNum, nextNum));
+    screen.textContent = displayNum;
+    operator = null;
+    nextNum = null;
     console.log(`First: ${firstNum} 
              Next: ${nextNum}
              Operator: ${operator}
