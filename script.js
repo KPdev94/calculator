@@ -34,8 +34,10 @@ numBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
         /* In future program class list add for selection of math and equals
         btns and just make nums not work if selected is equals */
-
-        if(firstNum && operator) {
+        if(equalsBtn.classList.contains('selectedMaths')) {
+            return;
+        }
+        else if(firstNum && operator) {
             if(nextNum.includes(".") && e.target.id == ".") {
                 nextNum = nextNum;
             }
@@ -95,13 +97,15 @@ mathBtns.forEach((button) => {
                 screen.textContent = displayNum;
             }
         }
+    mathBtns.forEach((button) => {
         button.classList.remove('selectedMaths');
         equalsBtn.classList.remove('selectedMaths');
-        e.target.classList.add('selectedMaths');
-        operator = e.target.id;
-        nextNum = "";
-        console.log(`First: ${firstNum} Next: ${nextNum} Operator: ${operator} Display: ${displayNum}`);
-        console.log(e.target.id);
+    });
+    e.target.classList.add('selectedMaths');
+    operator = e.target.id;
+    nextNum = "";
+    console.log(`First: ${firstNum} Next: ${nextNum} Operator: ${operator} Display: ${displayNum}`);
+    console.log(e.target.id);
     });
 });
 
