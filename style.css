@@ -6,9 +6,28 @@ body {
     justify-content: center;
     align-items: center;
 }
+.calcContainer {
+    display: flex;
+    flex: 1 1 auto;;
+    flex-direction: column;
+    border: 2px white solid;
+    padding: 6px;
+    border-radius: 6px;
+    width: 350px;
+}
+.line1, .line2, .line3, .line4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.keypad {
+    display: flex;
+    flex-direction: column;
+}
+
 #display {
-    width: 40vh;
-    height: 8vh;
+    height: 60px;
+    width: auto;
     border: 2px dashed white;
     margin-bottom: 12px;
     color: whitesmoke;
@@ -17,14 +36,33 @@ body {
     align-items: center;
     font-size: 40px;
 }
+.selectedMaths {
+    background-color: bisque;
+}
 button {
     background-color: whitesmoke;
+    flex: 1 1 auto;
+    height: 50px;
+    width: 50px;
 }
-.numBtns {
+.otherBtns {
     display: flex;
+}
+.keypad {
+    display: flex;
+    flex: 1 1 auto;
+    border: 2px solid yellow;
+}
+.buttons {
+    border: 2px red solid;
+    display: flex;
+    flex: 1 1 auto;
     justify-content: center;
+    border-radius: 4px;
 }
 .mathBtns {
+    border: 2px blue solid;
     display: flex;
+    flex: 1 1 auto;
     justify-content: center;
 }

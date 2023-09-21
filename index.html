@@ -7,29 +7,42 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div id="display"></div>
-        <div class="numBtns">
-            <button class="numBtn" id="1">1</button>
-            <button class="numBtn" id="2">2</button>
-            <button class="numBtn" id="3">3</button>
-            <button class="numBtn" id="4">4</button>
-            <button class="numBtn" id="5">5</button>
-            <button class="numBtn" id="6">6</button>
-            <button class="numBtn" id="7">7</button>
-            <button class="numBtn" id="8">8</button>
-            <button class="numBtn" id="9">9</button>
-            <button class="numBtn" id="0">0</button>
-            <button class="numBtn" id=".">.</button>
-        </div>
-        <div class="mathBtns">
-            <button class="mathBtn" id="add">+</button>
-            <button class="mathBtn" id="sub">-</button>
-            <button class="mathBtn" id="multiply">*</button>
-            <button class="mathBtn" id="divide">/</button>
-        </div>
-        <button class="equalsBtn" id="equals">=</button>
-        <button class="clearBtn" id="clear">Clear</button>
+        <div class="calcContainer">
+            <div id="display"></div>
+            <div class="otherBtns">
+                <button class="clearBtn" id="clear">Clear</button>
+                <button class="deleteBtn" data-key="Backspace" id="delete">Del</button>
+            </div>
+                <div class="keypad">
+                    <div class="line1">
+                        <button class="numBtn" data-key="Digit7" id="7">7</button>
+                        <button class="numBtn" data-key="Digit8" id="8">8</button>
+                        <button class="numBtn" data-key="Digit9" id="9">9</button>
+                        <button class="mathBtn" data-key="NumpadAdd" id="add">+</button>
+                    </div>
+                    <div class="line2">
+                        <button class="numBtn" data-key="Digit4" id="4">4</button>
+                        <button class="numBtn" data-key="Digit5" id="5">5</button>
+                        <button class="numBtn" data-key="Digit6" id="6">6</button>
+                        <button class="mathBtn" data-key="NumpadSubtract" id="sub">-</button>
 
+                    </div>
+                    <div class="line3">
+                        <button class="numBtn" data-key="Digit1" id="1">1</button>
+                        <button class="numBtn" data-key="Digit2" id="2">2</button>
+                        <button class="numBtn" data-key="Digit3" id="3">3</button>
+                        <button class="mathBtn" data-key="NumpadMultiply" id="multiply">*</button>
+
+                    </div>
+                    <div class="line4">
+                        <button class="numBtn" data-key="Period" id=".">.</button>
+                        <button class="numBtn" data-key="Digit0" id="0">0</button>
+                        <button class="equalsBtn" data-key="Equal" id="equals">=</button>
+                        <button class="mathBtn" data-key="NumpadDivide" id="divide">/</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="./script.js" defer></script>
 </html>
